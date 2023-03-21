@@ -8,7 +8,7 @@ function HomePage() {
     const session = useSession()
 
     return (
-        <div>HomePage
+        <div>
             <CreateTodo />
             <TodoList />
         </div>

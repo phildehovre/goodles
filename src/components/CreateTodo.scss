@@ -1,0 +1,36 @@
+.todo-name {
+    padding: .75em;
+}
+
+.create-ctn {
+    width: 50vw;
+
+    >form {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        width: 100%;
+        justify-content: space-between;
+
+        gap: 1em;
+
+        >* {
+            width: 100%;
+        }
+    }
+
+    >input {
+        width: 100%;
+    }
+
+
+}
+
+.column {
+    display: flex;
+    flex-direction: column
+}
+
+.align-left {
+    text-align: start;
+}
