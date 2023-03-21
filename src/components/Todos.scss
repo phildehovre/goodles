@@ -1,0 +1,27 @@
+.todo_list-ctn {
+    display: flex;
+    gap: .5em;
+    flex-direction: column;
+}
+
+.todo-ctn {
+    display: flex;
+    border: 1px solid rgba(211, 211, 211, 0.178);
+    padding: .5em;
+    justify-content: space-between;
+    height: 1.8em;
+    cursor: pointer;
+}
+
+.todo-delete {
+    cursor: pointer;
+    margin: .2em;
+    height: 100%;
+    color: rgb(78, 78, 78);
+
+    transition: 100ms ease-in all;
+
+    &:hover {
+        color: white
+    }
+}

@@ -5,17 +5,24 @@ import './App.css'
 import { useSession } from '@supabase/auth-helpers-react'
 import SupabaseLogin from './components/SupabaseLogin'
 import SupabaseSignOut from './components/SupabaseSignOut'
+import HomePage from './pages/HomePage'
 
 function App() {
 
   const session = useSession()
 
-  console.log(session)
-  return (
+
+  return (<>
     <div className="App">
-      <SupabaseLogin />
-      <SupabaseSignOut />
+      <HomePage />
+
+      {
+        session
+          ? <SupabaseSignOut />
+          : <SupabaseLogin />
+      }
     </div>
+  </>
   )
 }
 
