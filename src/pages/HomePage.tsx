@@ -9,8 +9,12 @@ function HomePage() {
 
     return (
         <div>
-            <CreateTodo />
-            <TodoList />
+            {
+                session && <>
+                    <CreateTodo />
+                    <TodoList />
+                </>
+            }
         </div>
     )
 }
