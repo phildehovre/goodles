@@ -9,13 +9,14 @@ export async function postTodos(events: any, session: any) {
         } catch (e) {
             console.log('error: ', e)
         }
+
     }
 }
 
 
 async function formatAndPostTodo(todo: any, session: any) {
     const start = dayjs(todo.startDate)
-    const end = dayjs(todo.endDate)
+    const end = dayjs(todo.endDate) || dayjs(start).add(1, 'hours')
 
     const event = {
         'summary': todo.title,
@@ -28,7 +29,7 @@ async function formatAndPostTodo(todo: any, session: any) {
             'dateTime': end.toISOString(),
             'timezone': Intl.DateTimeFormat().resolvedOptions().timeZone
         },
-        'id': todo.calendar_id
+        'id': todo.calendar_id,
     }
 
     try {
@@ -41,11 +42,9 @@ async function formatAndPostTodo(todo: any, session: any) {
             body: JSON.stringify(event)
         }).then((data) => {
             return data.json();
-        }).then((data) => {
-            console.log(data)
-        });
+        })
     } catch (error) {
-        console.log(error)
+        console.log('Could not be posted', error)
     }
 }
 async function formatAndUpdateTodo(todo: any, session: any) {

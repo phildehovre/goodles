@@ -2,29 +2,40 @@
     padding: .75em;
 }
 
-.create-ctn {
-    width: 50vw;
 
-    >form {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
+
+.create_form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100%;
+    min-width: 500px;
+    justify-content: space-between;
+
+    gap: 1em;
+
+    >* {
         width: 100%;
-        justify-content: space-between;
-
-        gap: 1em;
-
-        >* {
-            width: 100%;
-        }
     }
 
     >input {
         width: 100%;
     }
-
-
 }
+
+
+
+.todo-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+}
+
+
+
+
+
 
 .column {
     display: flex;

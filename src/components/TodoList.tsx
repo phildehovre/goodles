@@ -6,6 +6,8 @@ import './Todos.scss'
 import { useMutation } from '@tanstack/react-query'
 import { useQueryClient } from '@tanstack/react-query'
 import { deleteCalendarEvent, postTodos } from '../apis/googleCalendar'
+import CardWrapper from './layout/CardWrapper'
+import Spinner from './Spinner'
 
 function TodoList() {
 
@@ -13,6 +15,7 @@ function TodoList() {
     const session = useSession()
     const queryClient = useQueryClient()
     const [isDeleting, setIsDeleting] = React.useState(false)
+    const [isPosting, setIsPosting] = React.useState(false)
 
     const { data: todosData, isLoading, error } = useTodos(session?.user.id)
 
@@ -28,26 +31,31 @@ function TodoList() {
         })
     }
 
-    const handlePostTodos = () => {
-        postTodos(todosData?.data, session).then((res) => { console.log(res) })
+    const handlePostTodos = async () => {
+        setIsPosting(true)
+        const response = await postTodos(todosData?.data, session).then((res) => { console.log(res) }).then(() => setIsPosting(false)).then(() => alert('Todos Posted to Google Calendar'))
 
     }
 
 
 
-    return (<>
-        <span>
-            <h3>Todo list:</h3>
-            <button onClick={() => handlePostTodos()}>Post to Google</button>
-        </span>
-        <div className='todo_list-ctn'>{todosData?.data?.map((todo, i) => {
-            return (
-                <Todo handleDelete={handleDelete} todo={todo} isDeleting={isDeleting} key={i} />
-            )
+    return (
+        <CardWrapper title='Todos'>
+            <span>
+                {
+                    isPosting
+                        ? <Spinner />
+                        : <button onClick={() => handlePostTodos()}>Post to Google</button>
+                }
+            </span>
+            <div className='todo_list-ctn'>{todosData?.data?.map((todo, i) => {
+                return (
+                    <Todo handleDelete={handleDelete} todo={todo} isDeleting={isDeleting} key={i} />
+                )
+            })}
+            </div>
+        </CardWrapper>
 
-        })}
-        </div>
-    </>
     )
 }
 

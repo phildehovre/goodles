@@ -1,0 +1,17 @@
+.card_wrapper {
+    width: 50vw;
+    min-width: 750px;
+    border: 2px solid var(--tertiary-o20);
+    border-radius: 6px;
+    padding: 2em;
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.card_title {
+    position: absolute;
+    left: 5px;
+    top: -45px;
+    background-color: var(--theme-dark);
+    padding: .2em
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import './index.css'
+import './index.scss'
 import { SessionContextProvider } from '@supabase/auth-helpers-react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createClient } from '@supabase/supabase-js'

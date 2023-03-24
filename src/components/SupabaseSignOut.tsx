@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
+import './Dropdown.scss'
 
 
 
@@ -14,10 +15,10 @@ function SupabaseSignOut() {
     }
 
     return (
-        <button
+        <li style={{ textAlign: 'left' }}
             onClick={() => { signOut() }}>
             Sign out
-        </button>
+        </li>
     )
 }
 

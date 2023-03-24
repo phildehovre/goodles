@@ -13,6 +13,21 @@
     cursor: pointer;
 }
 
+.todo_left-ctn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5em;
+    width: 70%;
+}
+
+.todo_title-ctn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5em;
+}
+
 .todo-delete {
     cursor: pointer;
     margin: .2em;
@@ -24,4 +39,11 @@
     &:hover {
         color: white
     }
+}
+
+#category {
+    border-radius: 100px;
+    height: .7em;
+    width: .7em;
+    border: 1px solid rgba(128, 128, 128, 0.404);
 }

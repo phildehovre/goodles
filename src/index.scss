@@ -1,11 +1,30 @@
 :root {
+
+  --primary: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 69%);
+  --tertiary: hsl(0, 0%, 53%);
+  --secondary-o20: hsla(0, 0%, 69%, 0.253);
+  --tertiary-o20: hsla(0, 0%, 53%, 0.253);
+  --accent: hsl(29, 100%, 50%);
+  --dark: hsla(0, 14%, 3%, 0.774);
+  --light: hsl(0, 0%, 100%);
+  --font-color: black;
+  --links: black;
+  --type-1: hsla(39, 100%, 50%, 0.507);
+  --type-2: rgba(255, 0, 255, 0.493);
+  --type-3: rgba(128, 0, 128, 0.5);
+  --type-4: #ea44357e;
+  --type-5: #5b203394;
+  --confirm: rgb(0, 151, 0);
+  --cancel: salmon;
+  --theme-dark: #242424;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--theme-dark);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,11 +33,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
+* {
+  // outline: 1px solid red;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -47,9 +71,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -60,9 +86,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
