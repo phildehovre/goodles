@@ -134,7 +134,6 @@ function CreateTodo() {
                                 ...baseStyles,
                                 color: 'black',
                                 cursor: 'pointer',
-                                backgroundColor: state?.data.color,
                             }),
                         valueContainer: (baseStyles, state) => (
                             {
