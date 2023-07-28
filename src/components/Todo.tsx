@@ -4,6 +4,8 @@ import React from "react";
 import "./Todos.scss";
 import dayjs from "dayjs";
 import Spinner from "./Spinner";
+import { postTodos } from "../apis/googleCalendar";
+import { useSession } from "@supabase/auth-helpers-react";
 
 function Todo(props: {
   todo: any;
@@ -11,9 +13,14 @@ function Todo(props: {
   isDeleting: boolean;
 }) {
   const { todo, handleDelete, isDeleting } = props;
+  const session = useSession();
 
   const [isHovered, setIsHovered] = React.useState(false);
 
+  const handlePostTodo = async () => {
+    const res = await postTodos([todo], session);
+    console.log(res);
+  };
   return (
     <div
       className="todo-ctn"
@@ -41,16 +48,19 @@ function Todo(props: {
       <div className="todo_right-ctn"></div>
 
       {isHovered && (
-        <div className="todo-delete">
-          {isDeleting ? (
-            <Spinner />
-          ) : (
-            <FontAwesomeIcon
-              icon={faClose}
-              onClick={() => handleDelete(todo.calendar_id)}
-            />
-          )}
-        </div>
+        <>
+          <button onClick={handlePostTodo}>To Cal</button>
+          <div className="todo-delete">
+            {isDeleting ? (
+              <Spinner />
+            ) : (
+              <FontAwesomeIcon
+                icon={faClose}
+                onClick={() => handleDelete(todo.calendar_id)}
+              />
+            )}
+          </div>
+        </>
       )}
     </div>
   );
