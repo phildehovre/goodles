@@ -1,25 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { useSession } from '@supabase/auth-helpers-react'
-import SupabaseLogin from './components/SupabaseLogin'
-import SupabaseSignOut from './components/SupabaseSignOut'
-import HomePage from './pages/HomePage'
-import Navbar from './components/Navbar'
+import "./App.css";
+import Dashboard from "./pages/Dashboard";
+import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 
 function App() {
-
-
-
   return (
     <>
       <div className="App">
-        <Navbar />
-        <HomePage />
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route element={<HomePage />} path=""></Route>
+            <Route element={<Dashboard />} path="/dashboard"></Route>
+          </Routes>
+        </Router>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -5,16 +5,22 @@
     padding: 1rem;
     background-color: transparent;
     position: fixed;
-    min-width: 750px;
     width: 75%;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1;
 }
 
 .navbar-logo {
-    margin-right: 2rem;
-    padding: 0
+    // margin-right: 2rem;
+    padding: 0;
+    background-image: url('../../public/logo.png');
+    background-size:90%;
+    background-repeat: no-repeat;
+    height: 2.5em;
+    width: 2.5em;
+    display: flex;
 }
 
 .navbar-buttons {

@@ -40,21 +40,26 @@ function TodoList() {
 
 
     return (
-        <CardWrapper title='Todos'>
-            <span>
-                {
-                    isPosting
-                        ? <Spinner />
-                        : <button onClick={() => handlePostTodos()}>Post to Google</button>
-                }
-            </span>
-            <div className='todo_list-ctn'>{todosData?.data?.map((todo, i) => {
-                return (
-                    <Todo handleDelete={handleDelete} todo={todo} isDeleting={isDeleting} key={i} />
-                )
-            })}
-            </div>
-        </CardWrapper>
+        <>
+            {
+                todosData?.data?.length !== 0 &&
+                <CardWrapper title='Todos'>
+                    <span>
+                        {
+                            isPosting
+                                ? <Spinner />
+                                : <button onClick={() => handlePostTodos()}>Post to Google</button>
+                        }
+                    </span>
+                    <div className='todo_list-ctn'>{todosData?.data?.map((todo, i) => {
+                        return (
+                            <Todo handleDelete={handleDelete} todo={todo} isDeleting={isDeleting} key={i} />
+                        )
+                    })}
+                    </div>
+                </CardWrapper>
+            }
+        </>
 
     )
 }

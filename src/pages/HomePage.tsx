@@ -1,23 +1,13 @@
-import React from 'react'
-import { useSession } from '@supabase/auth-helpers-react'
-import CreateTodo from '../components/CreateTodo'
-import TodoList from '../components/TodoList'
-import Navbar from '../components/Navbar'
+import React from "react";
+import "./HomePage.scss";
+import Hero from "../components/Hero";
 
 function HomePage() {
-
-    const session = useSession()
-
-    return (
-        <div>
-            {
-                session && <>
-                    <CreateTodo />
-                    <TodoList />
-                </>
-            }
-        </div>
-    )
+  return (
+    <div className="HomePage-ctn">
+      <Hero />
+    </div>
+  );
 }
 
-export default HomePage
+export default HomePage;
