@@ -31,10 +31,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  margin: 0;
+
 }
 
-
+* {
+  // outline: 1px solid red;
+  // margin: 0;
+  // padding: 0;
+}
 
 a {
   font-weight: 500;
@@ -73,6 +77,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   text-align: center;
+  
 }
 
 button:hover {

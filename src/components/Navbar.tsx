@@ -25,7 +25,7 @@ const Navbar = () => {
         {/* <h2>ToGoos</h2> */}
       </div>
       <div className="navbar-buttons">
-        <button className="navbar-button">Home</button>
+        <div className="navbar-button">Home</div>
         {session ? (
           <DropdownMenu
             options={["About", "Settings", "Profile", "sign out"]}

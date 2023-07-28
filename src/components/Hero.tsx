@@ -25,12 +25,6 @@ function Hero() {
     });
   }, []);
 
-  useEffect(() => {
-    if (session) {
-      navigate("/dashboard");
-    }
-  }, [session]);
-
   async function googleSignIn() {
     try {
       await supabase.auth.signInWithOAuth({
@@ -48,9 +42,7 @@ function Hero() {
   }
 
   const handleCTAClick = () => {
-    googleSignIn().then(() => {
-      navigate("/dashboard");
-    });
+    googleSignIn();
   };
 
   return (

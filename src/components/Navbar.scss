@@ -35,9 +35,14 @@
     background-color: transparent;
     font-size: 1rem;
     cursor: pointer;
-
+    background-color: transparent;
+    color: #ffffff;
+    transition: 250ms ease-in-out all;
+    border: 1px solid transparent;
+    
     &:hover {
-        background-color: #f5f5f5;
+    border-radius: 0px;
+        border-bottom: 1px solid #FFD33F;
     }
 }
 

@@ -1,11 +1,13 @@
 import React from "react";
 import "./HomePage.scss";
 import Hero from "../components/Hero";
+import Footer from "../components/Footer";
 
 function HomePage() {
   return (
-    <div className="HomePage-ctn">
+    <div className="homepage-ctn">
       <Hero />
+      <Footer />
     </div>
   );
 }
