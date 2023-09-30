@@ -3,7 +3,7 @@ import DropdownMenu from "./Dropdown";
 import "./Navbar.scss";
 import React from "react";
 import SupabaseLogin from "./SupabaseLogin";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -21,14 +21,14 @@ const Navbar = () => {
         onClick={() => {
           navigate("");
         }}
-      >
-        {/* <h2>ToGoos</h2> */}
-      </div>
+      ></div>
       <div className="navbar-buttons">
-        <div className="navbar-button">Home</div>
+        <Link className="navbar-button" to="/">
+          Home
+        </Link>
         {session ? (
           <DropdownMenu
-            options={["About", "Settings", "Profile", "sign out"]}
+            options={["Profile", "About", "Settings", "sign out"]}
             onSelect={() => {
               console.log("clicked");
             }}

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 function SupabaseLogin() {
   const supabase = useSupabaseClient(); // talk to supabase
   const navigate = useNavigate();
+  const session = useSession();
 
   async function googleSignIn() {
     try {

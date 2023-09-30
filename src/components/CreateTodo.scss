@@ -3,11 +3,10 @@
 }
 
 
-
 .create_form {
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     min-width: 500px;
     justify-content: space-between;
@@ -17,19 +16,28 @@
     >* {
         width: 100%;
     }
-
+    
     >input {
         width: 100%;
     }
 }
 
+.column.align-left {
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    
+}
 
 
 .todo-submit {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3em;
+    width: fit-content;
 }
 
 

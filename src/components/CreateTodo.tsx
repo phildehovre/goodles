@@ -139,68 +139,81 @@ function CreateTodo() {
               {errors?.title?.message?.toString()}
             </p>
           )}
-        </span>
-        <Select
-          options={selectOptions}
-          onChange={(e: any) => {
-            handleSelectDate(e.value);
-          }}
-          placeholder="Done by..."
-          styles={{
-            option: (baseStyles, state) => ({
-              ...baseStyles,
-              color: "black",
-              cursor: "pointer",
-            }),
-            valueContainer: (baseStyles, state) => ({
-              ...baseStyles,
-              cursor: "pointer",
-            }),
-          }}
-        />
-        <Select
-          options={categoryOptions}
-          onChange={(e: any) => {
-            setCategory(e.value);
-          }}
-          placeholder="Category..."
-          styles={{
-            option: (baseStyles, state) => ({
-              ...baseStyles,
-              color: "black",
-              cursor: "pointer",
-              backgroundColor: state.data.color,
-            }),
-            valueContainer: (baseStyles, state) => ({
-              ...baseStyles,
-              cursor: "pointer",
-            }),
-          }}
-        />
-        <span className="column">
-          <DateTimePicker
-            {...register("startDate")}
-            name="startDate"
-            value={startDate}
-            onChange={setStartDate}
+
+          <Select
+            options={selectOptions}
+            onChange={(e: any) => {
+              handleSelectDate(e.value);
+            }}
+            placeholder="Done by..."
+            styles={{
+              option: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "white",
+                cursor: "pointer",
+                backgroundColor: state.isFocused ? "grey" : "transparent",
+              }),
+              menu: (baseStyles, state) => ({
+                ...baseStyles,
+                backgroundColor: "#3B3B3B",
+              }),
+              valueContainer: (baseStyles, state) => ({
+                ...baseStyles,
+                cursor: "pointer",
+                backgroundColor: "#3B3B3B",
+              }),
+              indicatorsContainer: (baseStyles, state) => ({
+                ...baseStyles,
+                cursor: "pointer",
+                backgroundColor: "#3B3B3B",
+              }),
+            }}
           />
-          {errors?.startDate && (
-            <p style={{ color: "salmon " }}>
-              {errors?.startDate?.message?.toString()}
-            </p>
-          )}
-          {/* <DateTimePicker
-                        {...register('endDate')}
-                        name='endDate'
-                        value={endDate} onChange={setEndDate} />
-                    {errors?.endDate && <p style={{ color: 'salmon ' }}>{errors?.endDate?.message?.toString()}</p>} */}
+          <Select
+            options={categoryOptions}
+            onChange={(e: any) => {
+              setCategory(e.value);
+            }}
+            placeholder="Category..."
+            styles={{
+              option: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "white",
+                cursor: "pointer",
+                backgroundColor: state.isFocused ? "grey" : "transparent",
+              }),
+              menu: (baseStyles, state) => ({
+                ...baseStyles,
+                backgroundColor: "#3B3B3B",
+              }),
+              valueContainer: (baseStyles, state) => ({
+                ...baseStyles,
+                cursor: "pointer",
+                backgroundColor: "#3B3B3B",
+              }),
+              indicatorsContainer: (baseStyles, state) => ({
+                ...baseStyles,
+                cursor: "pointer",
+                backgroundColor: "#3B3B3B",
+              }),
+            }}
+          />
+          <span className="column">
+            <DateTimePicker
+              {...register("startDate")}
+              name="startDate"
+              value={startDate}
+              onChange={setStartDate}
+            />
+            {errors?.startDate && (
+              <p style={{ color: "salmon " }}>
+                {errors?.startDate?.message?.toString()}
+              </p>
+            )}
+          </span>
         </span>
         <button className="todo-submit" title="Create todo." type="submit">
-          {useCreateTodo.isLoading ? (
-            <Spinner />
-          ) : (
-            <FontAwesomeIcon icon={faPlus} />
-          )}
+          {useCreateTodo.isLoading ? <Spinner /> : `Submit`}
         </button>
       </form>
     </CardWrapper>

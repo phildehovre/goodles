@@ -8,6 +8,12 @@ function Hero() {
   const navigate = useNavigate();
   const session = useSession();
   const supabase = useSupabaseClient(); // talk to supabase
+
+  useEffect(() => {
+    if (session) {
+      navigate("/dashboard");
+    }
+  }, [session]);
   useEffect(() => {
     // Target the lines of text using CSS classes or other selectors
     const lines = document.querySelectorAll(".animated-line");
@@ -31,29 +37,48 @@ function Hero() {
         provider: "google",
         options: {
           scopes: "https://www.googleapis.com/auth/calendar", // scopes must be seperated by a space, under the same string.
-          redirectTo: window.location.origin,
+          redirectTo: window.location.origin + "/dashboard",
         },
       });
+      navigate("/dashboard");
     } catch (error) {
       alert("Error logging in to Google with Supabase");
-    } finally {
-      navigate("/dashboard");
     }
   }
 
-  const handleCTAClick = () => {
-    googleSignIn();
+  const handleCTAClick = async () => {
+    await googleSignIn().then(() => {
+      navigate("/dashboard");
+    });
   };
-
   return (
     <div className="hero-ctn">
       <div className="tagline-ctn">
         <h1 className="animated-line ">Take control</h1>
         <h1 className="animated-line ">of Your calendar</h1>
         <h4 className="animated-line ">We'll look after the rest.</h4>
-        <button onClick={handleCTAClick} className="animated-line cta">
-          Create your first todo!
-        </button>
+        <>
+          {session && (
+            <button
+              className="animated-line cta"
+              onClick={() => {
+                navigate("/dashboard");
+              }}
+            >
+              Create your first Todo!
+            </button>
+          )}
+          {!session && (
+            <button
+              className="animated-line cta"
+              onClick={() => {
+                handleCTAClick();
+              }}
+            >
+              Sign in
+            </button>
+          )}
+        </>
       </div>
     </div>
   );
