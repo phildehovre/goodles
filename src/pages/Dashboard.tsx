@@ -10,11 +10,11 @@ function Dashboard() {
   const session = useSession();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!session) {
-      navigate("/");
-    }
-  });
+  // useEffect(() => {
+  //   if (!session) {
+  //     navigate("/");
+  //   }
+  // });
 
   return (
     <div className="dashboard-ctn">
