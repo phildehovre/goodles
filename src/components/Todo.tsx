@@ -1,4 +1,4 @@
-import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar, faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./Todos.scss";
@@ -49,7 +49,9 @@ function Todo(props: {
 
       {isHovered && (
         <>
-          <button onClick={handlePostTodo}>To Cal</button>
+          <button onClick={handlePostTodo}>
+            <FontAwesomeIcon icon={faCalendar} />
+          </button>
           <div className="todo-delete">
             {isDeleting ? (
               <Spinner />
