@@ -5,6 +5,7 @@ import TodoList from "../components/TodoList";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.scss";
+import Footer from "../components/Footer";
 
 function Dashboard() {
   const session = useSession();
@@ -22,6 +23,7 @@ function Dashboard() {
         <>
           <CreateTodo />
           <TodoList />
+          <Footer />
         </>
       )}
     </div>

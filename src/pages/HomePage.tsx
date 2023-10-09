@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import "./HomePage.scss";
 import Hero from "../components/Hero";
-import Footer from "../components/Footer";
 import { useSession } from "@supabase/auth-helpers-react";
-import About from "../components/About";
 import { getCookie, setCookie } from "../utils/helpers";
 import Dashboard from "./Dashboard";
 
@@ -25,7 +23,6 @@ function HomePage() {
     <div className="homepage-ctn">
       {!session && <Hero />}
       {!isFirstVisit && <Dashboard />}
-      <Footer />
     </div>
   );
 }
