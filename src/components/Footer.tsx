@@ -6,9 +6,9 @@ function Footer() {
       <ul>
         <li>About me</li>
         <li>Contact</li>© {new Date().getFullYear()} -{" "}
-        {new Date().getFullYear() + 1}
-        <a href="www.philippedehovre.com">Philippe De Hovre</a>
       </ul>
+      {new Date().getFullYear() + 1}
+      <a href="www.philippedehovre.com">Philippe De Hovre</a>
     </footer>
   );
 }
